@@ -8,7 +8,16 @@ class BinarySearchTree
   end
 
   def search(value)
-    # your code here
+    nodes_to_visit = [@root]
+
+    until nodes_to_visit.empty?
+      current = nodes_to_visit.pop
+      return current if current[:node] == value
+
+      nodes_to_visit = current[:children] + nodes_to_visit
+  
+    end
+    nil
   end
 
   def insert(value)
